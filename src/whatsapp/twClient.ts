@@ -25,4 +25,8 @@ app.listen(4000, () => {
     console.log('Application has started.');
 })
 
+app.get("/", (req:any, res:any) => {
+    res.send("Its running")
+})
+
 export default client;
