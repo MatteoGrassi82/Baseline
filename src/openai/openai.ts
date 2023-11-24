@@ -23,7 +23,8 @@ async function getGPTResponse({ clientMessage, sender, trainingPrompt }: { clien
     messages.push({ role: 'user', content: clientMessage });
     console.log('messages: ', messages);
     const requestBody: CreateChatCompletionRequest = {
-      model: 'gpt-3.5-turbo',
+      model: 'gpt-4-1106-preview',
+      temperature: 0.6,
       messages,
     };
 
@@ -36,7 +37,7 @@ async function getGPTResponse({ clientMessage, sender, trainingPrompt }: { clien
     return response;
   } catch (error) {
     console.error('Error with ChatGPT: ', error);
-    return 'The servers are currently experiencing high demand. Please try again in a few minutes.';
+    return 'The servers are currently experiencing high demand. Please try again in a few minutes.' + error ;
   }
 }
 
